@@ -1,0 +1,33 @@
+<div class="summary">
+  <div class="row sSelect">
+    <div class="col-6">
+      <p>Year:
+          <select ng-model="appCon.orderProp">
+            <option ng-value="2015">2015</option>
+            <option ng-value="2016">2016</option>
+          </select>
+      </p>
+    </div>
+
+    <div class="col-6">
+      <p>
+        Team:
+        <select ng-model="appCon.sTeamName">
+          <option ng-value="all">Choose team</option>
+          <option ng-if="appCon.orderProp == 2015" ng-repeat="x in appCon.team11" ng-click="appCon.loadSummary(appCon.orderProp,appCon.sTeamName)">{{x}}</option>
+          <option ng-if="appCon.orderProp == 2016" ng-repeat="x in appCon.team22" ng-click="appCon.loadSummary(appCon.orderProp,appCon.sTeamName)">{{x}}</option>
+        </select>
+      </p>
+    </div>
+  </div>
+
+  <div ng-if="(appCon.sTeamName != null) && (appCon.orderProp != null)" ng-init="appCon.loadSummary(appCon.orderProp,appCon.sTeamName)">
+
+    <h1 class="tName">{{appCon.sTeamName}}</h1>
+    <p class="t">Total Match : {{appCon.totalmatch}}</p>
+    <p class="t">Total Score : {{appCon.totalscore}}</p>
+    <p class="t">Total Win : {{appCon.totalwin}}</p>
+    <p class="t">Total Loss : {{appCon.totalloss}}</p>
+    <p class="t">Total Draw : {{appCon.totaldraw}}</p>
+  </div>
+</div>
