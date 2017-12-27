@@ -48,7 +48,7 @@ myApp.controller('appController',function($http,$routeParams,$parse){
   }
 
 
-  this.orderProp = '2016';
+  this.orderProp;
 
   //function for 2015 json call
   this.loadRounds1 = function(){
